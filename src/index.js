@@ -15,7 +15,7 @@ class Violetics {
         }
     }
     BASE(path, apikey) {
-        return `http://localhost:3001/api/canvas/${path}?apikey=${apikey}`;
+        return `https://violetics.pw/api/canvas/${path}?apikey=${apikey}`;
     }
 }
 
