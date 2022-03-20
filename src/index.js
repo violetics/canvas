@@ -1,6 +1,4 @@
 const fs = require("fs");
-const axios = require("axios");
-const FormData = require("form-data");
 const utils = require("./utils");
 const { VioleticsError } = utils;
 
@@ -11,7 +9,7 @@ class Violetics {
         this.plugins = require("./plugins");
         this.apikey = apikey;
         for (var plugins in this.plugins) {
-            this[plugins] = this.plugins[plugins](axios, FormData, this);
+            this[plugins] = this.plugins[plugins](this);
         }
     }
     BASE(path, apikey) {

@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function WhatsappProfile(axios, FormData, self) {
+function WhatsappProfile(self) {
     let { VioleticsError, request, parseOptions } = self.utils;
     class WhatsappProfile {
         constructor(args) {
