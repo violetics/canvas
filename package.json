@@ -28,7 +28,6 @@
     "homepage": "https://github.com/Violetics/canvas#readme",
     "dependencies": {
         "axios": "^0.26.1",
-        "bluebird": "^3.7.2",
         "form-data": "^4.0.0"
     },
     "devDependencies": {
