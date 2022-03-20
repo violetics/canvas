@@ -46,7 +46,7 @@ wa.toBuffer()
 
 ## DISCLAIMER
 
-<p>**@violetics/canvas is a module API wrapper from a RestAPI https://violetics.pw/ and DOES NOT REQUIRED CANVAS API**</p>
+<strong>@violetics/canvas is a module API wrapper from a RestAPI https://violetics.pw/ and DOES NOT REQUIRED CANVAS API</strong>
 
 ## Information
 
