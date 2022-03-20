@@ -4,7 +4,10 @@ const { VioleticsError } = utils;
 
 class Violetics {
     constructor(apikey) {
-        if (!apikey || typeof apikey != "string") throw new VioleticsError("arguments 'apikey' must be typeof string and required!");
+        if (!apikey || typeof apikey != "string")
+            throw new VioleticsError(
+                "arguments 'apikey' must be typeof string and required!"
+            );
         this.utils = utils;
         this.plugins = require("./plugins");
         this.apikey = apikey;

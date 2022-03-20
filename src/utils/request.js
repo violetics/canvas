@@ -16,15 +16,21 @@ module.exports = function sendRequest(url, options) {
             });
         }
     });
-    let hasMedia = bodyForm._streams.filter((x) => /content-type.+/gi.test(x))[0];
+    let hasMedia = bodyForm._streams.filter((x) =>
+        /content-type.+/gi.test(x)
+    )[0];
     return new Promise((resolve, reject) => {
         axios({
             url: url,
-            ...(hasMedia ? { data: bodyForm.getBuffer(), method: "POST", } : { params: options, method: "GET" }),
+            ...(hasMedia
+                ? { data: bodyForm.getBuffer(), method: "POST" }
+                : { params: options, method: "GET" }),
             responseType: "arraybuffer",
             headers: {
                 ...bodyForm.getHeaders(),
-            }
-        }).then((response) => resolve(response.data)).catch(reject);
+            },
+        })
+            .then((response) => resolve(response.data))
+            .catch(reject);
     });
 };
