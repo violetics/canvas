@@ -29,19 +29,19 @@ const canvas = new Violetics("beta");
 const fs = require("fs");
 
 let wa = new canvas.WhatsappProfile()
-    .setUsername("Mr. Violetics")
-    .setAbout("Violetics is da best")
-    .setNumber("62895333381439")
-    .setAvatar("https://violetics.pw/assets/images/logo.png");
+	.setUsername("Mr. Violetics")
+	.setAbout("Violetics is da best")
+	.setNumber("62895333381439")
+	.setAvatar("https://violetics.pw/assets/images/logo.png");
 
 wa.toBuffer()
-    .then((buffer) => {
-        let path = `./result.png`;
-        fs.writeFileSync(path, buffer);
-        let writeBuffer = fs.readFileSync(path);
-        console.log(writeBuffer);
-    })
-    .catch((error) => console.error(error));
+	.then((buffer) => {
+		let path = `./result.png`;
+		fs.writeFileSync(path, buffer);
+		let writeBuffer = fs.readFileSync(path);
+		console.log(writeBuffer);
+	})
+	.catch((error) => console.error(error));
 ```
 
 ## DISCLAIMER

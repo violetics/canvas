@@ -1,5 +1,5 @@
 module.exports = {
-    VioleticsError: require("./VioleticsError"),
-    request: require("./request"),
-    parseOptions: require("./parseOptions"),
+	VioleticsError: require("./VioleticsError"),
+	request: require("./request"),
+	parseOptions: require("./parseOptions"),
 };
