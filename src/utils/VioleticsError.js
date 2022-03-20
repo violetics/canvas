@@ -1,9 +1,13 @@
+const util = require("util");
+
 module.exports = class VioleticsError extends TypeError {
-    constructor(...args) {
-        super(...args);
+    constructor(message, type, ...args) {
+        super(message, type, ...args);
+        this.name = type || "TypeError";
+        this.message = util.format(message);
         this.error = {
             name: this.name,
-            message: this.message,
+            message: typeof message == "object" ? message : util.format(message),
             paths: [...this.stack.matchAll(/\((.+)\)/gim)].map(([, error]) => error),
             stack: this.stack,
         };

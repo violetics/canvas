@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 function WhatsappProfile(self) {
     let { VioleticsError, request, parseOptions } = self.utils;
@@ -22,7 +23,6 @@ function WhatsappProfile(self) {
             return this;
         }
         setNumber(jid) {
-            jid = Number(jid);
             if (!jid) throw new VioleticsError("setNumber() required number and must be typeof number");
             this._args.number = jid;
             return this;
@@ -42,7 +42,7 @@ function WhatsappProfile(self) {
                     username: "Violetics.",
                     about: "Violetics keren abiez",
                     number: 6281300123450,
-                    avatar: fs.readFileSync(`${__dirname.split("/").slice(0, -2).join("/")}/media/violetics.png`),
+                    avatar: fs.readFileSync(path.join(__dirname, "../../media/violetics.png")),
                 },
                 this._args
             );

@@ -1,6 +1,6 @@
+const fs = require("fs");
 const Violetics = require("../src");
 const canvas = new Violetics("beta");
-const fs = require("fs");
 
 let wa = new canvas.WhatsappProfile()
     .setUsername("Mr. Violetics")

@@ -1,4 +1,5 @@
 const isUrl = require("./isUrl");
+const VioleticsError = require("./VioleticsError");
 let axios = require("axios");
 let FormData = require("form-data");
 
@@ -25,6 +26,13 @@ module.exports = function sendRequest(url, options) {
             },
         })
             .then((response) => resolve(response.data))
-            .catch(reject);
+            .catch((error) => {
+                if (error.hasOwnProperty("response")) {
+                    let data = JSON.parse(error.response.data.toString());
+                    return reject(new VioleticsError(data, "ApiError"));
+                } else {
+                    return reject(new VioleticsError(error.message));
+                }
+            });
     });
 };

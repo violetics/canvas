@@ -1,6 +1,6 @@
 {
     "name": "@violetics/canvas",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Canvas API Wrapper for https://violetics.pw/api/canvas",
     "main": "src/index.js",
     "scripts": {
@@ -28,7 +28,8 @@
     "homepage": "https://github.com/Violetics/canvas#readme",
     "dependencies": {
         "axios": "^0.26.1",
-        "form-data": "^4.0.0"
+        "form-data": "^4.0.0",
+        "path": "^0.12.7"
     },
     "devDependencies": {
         "prettier": "^2.6.0"
