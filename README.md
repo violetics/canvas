@@ -1,4 +1,4 @@
-## Wattpad Scrapper
+## Violetics API Canvas
 
 > **_Canvas API Wrapper for https://violetics.pw/api/canvas_**
 
