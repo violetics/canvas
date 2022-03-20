@@ -44,6 +44,10 @@ wa.toBuffer()
     .catch((error) => console.error(error));
 ```
 
+## DISCLAIMER
+
+<p>**@violetics/canvas is a module API wrapper from a RestAPI https://violetics.pw/ and DOES NOT REQUIRED CANVAS API**</p>
+
 ## Information
 
 ```diff
