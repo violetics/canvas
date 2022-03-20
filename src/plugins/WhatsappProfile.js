@@ -5,37 +5,32 @@ function WhatsappProfile(self) {
     class WhatsappProfile {
         constructor(args) {
             if (args && (Array.isArray(args) || typeof args != "object"))
-                throw new VioleticsError(
-                    "constructor arguments must be typeof object {}"
-                );
-            this.methods = Object.getOwnPropertyNames(
-                WhatsappProfile.prototype
-            );
+                throw new VioleticsError("constructor arguments must be typeof object {}");
+            this.methods = Object.getOwnPropertyNames(WhatsappProfile.prototype);
             this._args = args || {};
         }
         setUsername(name) {
             if (!name || typeof name != "string")
-                throw new VioleticsError(
-                    "setUsername() required name and must be typeof string"
-                );
+                throw new VioleticsError("setUsername() required name and must be typeof string");
             this._args.username = name;
             return this;
         }
         setAbout(about) {
             if (!about || typeof about != "string")
-                throw new VioleticsError(
-                    "setAbout() required about and must be typeof string"
-                );
+                throw new VioleticsError("setAbout() required about and must be typeof string");
             this._args.about = about;
             return this;
         }
         setNumber(jid) {
             jid = Number(jid);
-            if (!jid)
-                throw new VioleticsError(
-                    "setNumber() required number and must be typeof number"
-                );
+            if (!jid) throw new VioleticsError("setNumber() required number and must be typeof number");
             this._args.number = jid;
+            return this;
+        }
+        setAvatar(avatar) {
+            if (!avatar || typeof avatar != "string")
+                throw new VioleticsError("setAvatar() required avatar and must be typeof string");
+            this._args.avatar = avatar;
             return this;
         }
         send(apikey, options) {
@@ -47,12 +42,7 @@ function WhatsappProfile(self) {
                     username: "Violetics.",
                     about: "Violetics keren abiez",
                     number: 6281300123450,
-                    avatar: fs.readFileSync(
-                        `${__dirname
-                            .split("/")
-                            .slice(0, -2)
-                            .join("/")}/media/violetics.png`
-                    ),
+                    avatar: fs.readFileSync(`${__dirname.split("/").slice(0, -2).join("/")}/media/violetics.png`),
                 },
                 this._args
             );
