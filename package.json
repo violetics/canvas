@@ -1,0 +1,37 @@
+{
+    "name": "@violetics/canvas",
+    "version": "0.1.0",
+    "description": "Canvas API Wrapper for https://violetics.pw/api/canvas",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src",
+        "test": "node test/example.test.js",
+        "prettier": "prettier -w ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Violetics/canvas.git"
+    },
+    "keywords": [
+        "violetics",
+        "canvas",
+        "wrapper",
+        "api",
+        "image",
+        "manipulation"
+    ],
+    "author": "Violetics",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Violetics/canvas/issues"
+    },
+    "homepage": "https://github.com/Violetics/canvas#readme",
+    "dependencies": {
+        "axios": "^0.26.1",
+        "bluebird": "^3.7.2",
+        "form-data": "^4.0.0"
+    },
+    "devDependencies": {
+        "prettier": "^2.6.0"
+    }
+}
