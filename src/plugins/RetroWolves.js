@@ -5,8 +5,7 @@ function RetroWolves(self) {
 	let { VioleticsError, request, parseOptions } = self.utils;
 	class RetroWolves {
 		constructor(avatar) {
-			if (avatar && typeof avatar != "string")
-				throw new VioleticsError("avatar must be typeof string");
+			if (avatar && typeof avatar != "string") throw new VioleticsError("avatar must be typeof string");
 			this.methods = Object.getOwnPropertyNames(RetroWolves.prototype);
 			this._args = { avatar: avatar };
 		}

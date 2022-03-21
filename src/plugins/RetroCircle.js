@@ -5,8 +5,7 @@ function RetroCircle(self) {
 	let { VioleticsError, request, parseOptions } = self.utils;
 	class RetroCircle {
 		constructor(avatar) {
-			if (avatar && typeof avatar != "string")
-				throw new VioleticsError("avatar must be typeof string");
+			if (avatar && typeof avatar != "string") throw new VioleticsError("avatar must be typeof string");
 			this.methods = Object.getOwnPropertyNames(RetroCircle.prototype);
 			this._args = { avatar: avatar };
 		}

@@ -5,8 +5,7 @@ function RetroMotions(self) {
 	let { VioleticsError, request, parseOptions } = self.utils;
 	class RetroMotions {
 		constructor(avatar) {
-			if (avatar && typeof avatar != "string")
-				throw new VioleticsError("avatar must be typeof string");
+			if (avatar && typeof avatar != "string") throw new VioleticsError("avatar must be typeof string");
 			this.methods = Object.getOwnPropertyNames(RetroMotions.prototype);
 			this._args = { avatar: avatar };
 		}
