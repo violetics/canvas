@@ -17,8 +17,7 @@ function WhatsappProfile(self) {
 			return this;
 		}
 		setAbout(about) {
-			if (!about || typeof about != "string")
-				throw new VioleticsError("setAbout() required about and must be typeof string");
+			if (!about) throw new VioleticsError("setAbout() required about");
 			this._args.about = about;
 			return this;
 		}

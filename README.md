@@ -25,7 +25,7 @@
 ```javascript
 "use strict";
 const Violetics = require("@violetics/canvas");
-const canvas = new Violetics("beta");
+const canvas = new Violetics("API_KEY"); // register on https://violetics.pw/ to get your own apikey
 const fs = require("fs");
 
 let wa = new canvas.WhatsappProfile()
@@ -46,7 +46,11 @@ wa.toBuffer()
 
 ## DISCLAIMER
 
-<strong>@violetics/canvas is a module API wrapper from a RestAPI https://violetics.pw/ and DOES NOT REQUIRED CANVAS API</strong>
+<h4> Id: </h4>
+<strong>@violetics/canvas adalah sebuah module API wrapper dari RestAPI https://violetics.pw/. TIDAK MEMBUTUHKAN CANVAS API dan BISA DIGUNAKAN DI SELURUH PLATFORM ANDA</strong>
+
+<h4> En: </h4>
+<strong>@violetics/canvas is a module API wrapper from a RestAPI https://violetics.pw/. DOES NOT REQUIRED CANVAS API and CAN BE USED ACROSS YOUR PLATFORM</strong>
 
 ## Information
 

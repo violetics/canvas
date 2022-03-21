@@ -9,7 +9,6 @@ module.exports = class VioleticsError extends TypeError {
 			name: this.name,
 			message: typeof message == "object" ? message : util.format(message),
 			paths: [...this.stack.matchAll(/\((.+)\)/gim)].map(([, error]) => error),
-			stack: this.stack,
 		};
 		this.date = new Date();
 		this.isError = true;

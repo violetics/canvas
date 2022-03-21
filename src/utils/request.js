@@ -2,6 +2,7 @@ const isUrl = require("./isUrl");
 const VioleticsError = require("./VioleticsError");
 let axios = require("axios");
 let FormData = require("form-data");
+let FileType = require("file-type");
 
 module.exports = function sendRequest(url, options) {
 	let bodyForm = new FormData();
@@ -9,6 +10,8 @@ module.exports = function sendRequest(url, options) {
 		let media = ["player1", "player2", "avatar"];
 		if (!Buffer.isBuffer(value) && !isUrl(value)) {
 			bodyForm.append(name, value);
+		} else if (isUrl(value) && media.includes(name)) {
+			bodyForm.append(name, encodeURIComponent(value));
 		} else if (Buffer.isBuffer(value) && media.includes(name)) {
 			bodyForm.append(name, Buffer.from(value, "binary"), {
 				filename: `${name}-module.png`,
@@ -25,11 +28,21 @@ module.exports = function sendRequest(url, options) {
 				...bodyForm.getHeaders(),
 			},
 		})
-			.then((response) => resolve(response.data))
+			.then(async (response) => {
+				let type = await FileType.fromBuffer(response.data);
+				resolve({
+					type: type,
+					buffer: response.data,
+				});
+			})
 			.catch((error) => {
 				if (error.hasOwnProperty("response")) {
-					let data = JSON.parse(error.response.data.toString());
-					return reject(new VioleticsError(data, "ApiError"));
+					if ("data" in error.response) {
+						let data = JSON.parse(error.response.data.toString());
+						return reject(new VioleticsError(data, "ApiError"));
+					} else {
+						return reject(new VioleticsError(error.message));
+					}
 				} else {
 					return reject(new VioleticsError(error.message));
 				}
