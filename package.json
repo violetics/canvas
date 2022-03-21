@@ -1,6 +1,6 @@
 {
     "name": "@violetics/canvas",
-    "version": "0.4.3",
+    "version": "0.6.5",
     "description": "Canvas API Wrapper for https://violetics.pw/api/canvas",
     "main": "src/index.js",
     "scripts": {
