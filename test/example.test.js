@@ -2,10 +2,10 @@ const fs = require("fs");
 const Violetics = require("../src");
 const canvas = new Violetics("beta");
 
-let Retro = new canvas.RetroWolves()
-    .setAvatar("https://violetics.pw/assets/avatars/user.png");
-    
-Retro.toBuffer()
+let welcomer = new canvas.Welcomer().setUsername("Dehanjing").setGroup("Violetics Group").setTs(Date.now());
+
+welcomer
+	.toBuffer()
 	.then((result) => {
 		fs.writeFileSync("./media/result." + result.type.ext, result.buffer);
 		console.log("done");
