@@ -17,7 +17,7 @@ function Attp2(self) {
 		);
 		let send = (apikey, options) => request(self.BASE("Attp2", apikey), options);
 		if (cb && typeof cb == "function") {
-			send(self.apikey, options)
+			return send(self.apikey, options)
 				.then((buffer) => cb(null, buffer))
 				.catch((error) => cb(error, null));
 		}
