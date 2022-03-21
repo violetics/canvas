@@ -35,8 +35,8 @@ let wa = new canvas.WhatsappProfile()
 	.setAvatar("https://violetics.pw/assets/images/logo.png");
 
 wa.toBuffer()
-	.then((buffer) => {
-		let path = `./result.png`;
+	.then(({ type, buffer }) => {
+		let path = `./result.${type.ext}`;
 		fs.writeFileSync(path, buffer);
 		let writeBuffer = fs.readFileSync(path);
 		console.log(writeBuffer);

@@ -2,8 +2,7 @@ const fs = require("fs");
 const Violetics = require("../src");
 const canvas = new Violetics("beta");
 
-let attp = canvas.attp("shhss").toBuffer((error, result) => {
-	console.log();
+canvas.attp2("shhss").toBuffer((error, result) => {
 	if (error) return console.error(error);
 	let { type, buffer } = result;
 	let path = `./media/result.${type.ext}`;
