@@ -37,14 +37,14 @@ module.exports = function sendRequest(url, options) {
 			})
 			.catch((error) => {
 				if (error.hasOwnProperty("response")) {
-					if (error.response.hasOwnProperty("data")) {
+					if (error.response && error.response.hasOwnProperty("data")) {
 						let data = JSON.parse(error.response.data.toString());
 						return reject(new VioleticsError(data, "ApiError"));
 					} else {
-						return reject(new VioleticsError(error.message));
+						return reject(new VioleticsError(error.message, error.name));
 					}
 				} else {
-					return reject(new VioleticsError(error.message));
+					return reject(new VioleticsError(error.message, error.name));
 				}
 			});
 	});
