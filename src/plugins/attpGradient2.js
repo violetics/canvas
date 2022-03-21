@@ -1,6 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
 function AttpGradient2(self) {
 	let { VioleticsError, request, parseOptions } = self.utils;
 	const AttpGradient2 = function AttpGradient2(text) {

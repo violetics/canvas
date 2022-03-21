@@ -1,6 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
 function Attp2(self) {
 	let { VioleticsError, request, parseOptions } = self.utils;
 	const Attp2 = function Attp2(text) {
