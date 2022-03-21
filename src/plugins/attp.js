@@ -5,6 +5,9 @@ function attp(self) {
 		this.methods = Object.getOwnPropertyNames(Attp.prototype);
 		this._args = { text: text };
 	};
+	Attp.prototype.send = function (apikey, options) {
+		return request(self.BASE("attp", apikey), options);
+	};
 	Attp.prototype.toBuffer = function (cb) {
 		let options = parseOptions(
 			{
@@ -12,13 +15,12 @@ function attp(self) {
 			},
 			this._args
 		);
-		let send = (apikey, options) => request(self.BASE("attp", apikey), options);
 		if (cb && typeof cb == "function") {
-			return send(self.apikey, options)
+			return this.send(self.apikey, options)
 				.then((buffer) => cb(null, buffer))
 				.catch((error) => cb(error, null));
 		}
-		return send(self.apikey, options);
+		return this.send(self.apikey, options);
 	};
 	return (text) => new Attp(text);
 }
