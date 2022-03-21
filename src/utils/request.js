@@ -37,7 +37,7 @@ module.exports = function sendRequest(url, options) {
 			})
 			.catch((error) => {
 				if (error.hasOwnProperty("response")) {
-					if ("data" in error.response) {
+					if (error.response.hasOwnProperty("data")) {
 						let data = JSON.parse(error.response.data.toString());
 						return reject(new VioleticsError(data, "ApiError"));
 					} else {

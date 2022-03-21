@@ -35,7 +35,7 @@ function WhatsappProfile(self) {
 		send(apikey, options) {
 			return request(self.BASE("whatsapp-profile", apikey), options);
 		}
-		toBuffer() {
+		toBuffer(cb) {
 			let options = parseOptions(
 				{
 					username: "Violetics.",
@@ -45,6 +45,11 @@ function WhatsappProfile(self) {
 				},
 				this._args
 			);
+			if (cb && typeof cb == "function") {
+				return this.send(self.apikey, options)
+					.then((buffer) => cb(null, buffer))
+					.catch((error) => cb(error, null));
+			}
 			return this.send(self.apikey, options);
 		}
 	}
